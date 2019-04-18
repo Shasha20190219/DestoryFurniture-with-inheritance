@@ -1,33 +1,32 @@
 public class Furniture {
-    private String material;
-    private String furnitureType;
-    private boolean isBroken;
-    private boolean isBurnt;
+    protected String type;
+    protected Material material;
 
-    public Furniture(String furnitureType, String materialType) {
-        this.furnitureType = furnitureType;
-        this.material = materialType;
+
+    public Furniture(Material material, String type) {
+        this.material = material;
+        this.type = type;
+
     }
 
     public void hit() {
-        isBroken = true;
+        material.hit();
     }
 
     public void setFire() {
-        if (!material.equals("glass")) {
-            isBurnt = true;
-        }
+        material.setFire();
     }
 
-    public void printStatus() {
-        System.out.println(
-                String.format(
-                        "The %s %s is %sbroken, and it is %sburnt.",
-                        this.material,
-                        this.furnitureType,
-                        this.isBroken ? "" : "not ",
-                        this.isBurnt ? "" : "not "
-                )
-        );
+        public void printStatus() {
+            System.out.println(
+                    String.format(
+                            "The %s %s is %sbroken, and it is %sburnt.",
+                            material.getType(),
+                            type,
+                            material.getBroken() ? "" : "not ",
+                            material.getBurnt() ? "" : "not "
+                    )
+            );
     }
 }
+
