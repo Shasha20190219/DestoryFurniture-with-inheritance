@@ -6,8 +6,7 @@ public class Glass extends Material{
     }
 
     @Override
-    public boolean getBurnt() {
-        return false;
+    public void setFire() {
 
     }
 

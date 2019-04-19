@@ -5,4 +5,5 @@ public class Table extends Furniture {
         super(material, type);
     }
 
+
 }

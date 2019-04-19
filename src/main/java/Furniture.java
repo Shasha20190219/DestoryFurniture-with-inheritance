@@ -9,6 +9,7 @@ public class Furniture {
 
     }
 
+
     public void hit() {
         material.hit();
     }
