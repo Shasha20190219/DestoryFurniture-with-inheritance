@@ -1,28 +1,29 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Material {
     private String type;
-    private boolean isBurnt;
-    private boolean isBroken;
-
+    private Map<DamageType, Boolean> statusMap;
 
     public Material(String type) {
         this.type = type;
-
+        this.statusMap = new HashMap<>();
     }
 
     public boolean getBurnt() {
-        return isBurnt;
+        return statusMap.getOrDefault(DamageType.FIRE, false);
     }
 
     public boolean getBroken() {
-        return isBroken;
+        return statusMap.getOrDefault(DamageType.BLUNT, false);
     }
 
     public void setFire() {
-        isBurnt = true;
+        statusMap.put(DamageType.FIRE, true);
     }
 
     public void hit() {
-        isBroken = true;
+        statusMap.put(DamageType.BLUNT, true);
     }
 
     public String getType() {
